@@ -1,0 +1,1 @@
+A web game where you live out the life of a gambler. Invest your money into stocks for a hefty return (maybe). Or go to the casino and lose it all (maybe). Play minigames with friends, invite them over to your house, show 'em around, or just play against random other players.
