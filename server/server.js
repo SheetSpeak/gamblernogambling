@@ -1,19 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-const express = require("express");
-const app = express();
-const cors = require('cors');
-const fsp=fs.promises;
-const mysql = require("mysql")
+const fs = require("fs")
+const path = require("path")
+const express = require("express")
+const app = express()
+const cors = require('cors')
+const fsp=fs.promises
 
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true }));
-
-let con = mysql.createConnection({
-  host: "localhost",
-  user: "tempName",
-  password: "pass"
-})
+app.use(express.json()) 
+app.use(express.urlencoded({ extended: true }))
 
 const corsOptions={
     origin:["http://localhost:5173"]
@@ -26,9 +19,19 @@ app.post("/posts/temp",(req,res)=>{
     res.json(req.body)
 })
 
+//create user
+
+const createPostFs = async (req,res) => {
+    const files = await fsp.readdir(path.join(__dirname,"users"))
+    if(files!=[]){
+        for(const i of files){
+            console.log(file)
+        }
+    }
+}
 
 app.post("/posts/createUser",(req,res)=>{
-    
+    createPostFs(req,res)
 })
 
 
