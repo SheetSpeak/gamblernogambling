@@ -6,3 +6,10 @@
     --color-beige:#EEE0CC;
     --color-maroon:#7B2525;
 }
+html, body {
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; 
+}

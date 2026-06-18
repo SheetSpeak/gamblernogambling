@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
-import './App.css'
+import { Link } from 'react-router'
 
-function App() {
+function Menu() {
 
   const [menuButton, setMB]=useState('100%')
 
@@ -24,9 +24,13 @@ function App() {
 
           {/* menu */}
           <div className='absolute w-full h-screen bg-sage transition-all duration-200 grid grid-cols-1 grid-rows-1 p-4 content-center' style={{bottom:menuButton}}>
-            <div className='bg-beige h-full w-full border-4 border-brown grid grid-cols-1 p-2'>
-              <div className='w-full h-fit p-2 border border-brown'>Login</div>
-              <div className='w-full h-fit p-2 border border-brown'>Cash and stuff</div>
+            <div className='bg-beige h-full w-full border-4 border-brown flex flex-col p-2'>
+              <div className='w-full h-fit p-2 border border-brown flex'><img src='' className='w-[33.3%] aspect-square'/><div className='w-[66.7%] grid content-center justify-items-center '><div>Name</div></div></div>
+              <div className='w-full h-full p-2 mt-2 border border-brown grid grid-cols-1 gap-2 items-center'>
+                <div className='w-full h-full border border-brown'>Net worth - pay taxes</div>
+                <div className='w-full h-full border border-brown'>Cash in bank - loans</div>
+                <div className='w-full h-full border border-brown'>Locked</div>
+              </div>
             </div>
             <div className='absolute bottom-0 bg-brown right-0 p-2 text-beige font-semibold text-xs'>by SheetSpeak</div>
             <div className='absolute m-2 top-0 bg-beige right-0 w-[12.5%] aspect-square border-2 border-brown grid-cols-1 grid-rows-1 grid content-center justify-items-center overflow-hidden' onClick={()=>{setMB("100%")}}>
@@ -39,7 +43,7 @@ function App() {
           {/* body */}
           <div className='w-full h-full grid grid-cols-1 gap-4 p-4'>
               <div className='bg-sage content-center text-center font-black text-2xl text-beige'>HOUSE</div>
-              <div className='bg-brown content-center text-center font-black text-2xl text-beige'>STOCKS</div>
+              <Link to={"/stocks"}><div className='bg-[#285A48] content-center text-center font-black text-2xl text-[#B0E4CC] h-full w-full'>STOCKS</div></Link>
               <div className='bg-maroon content-center text-center font-black text-2xl text-beige'>GAMBLE</div>
           </div>
 
@@ -52,4 +56,4 @@ function App() {
   </div>
 }
 
-export default App
+export default Menu
