@@ -1,8 +1,11 @@
+import { useState } from "react"
 import { Link } from "react-router"
+import Research from "./Research"
 
 const Stocks = ()=>{
 
     const orientation = screen.orientation.type
+    const [open,setOpen]=useState('none')
 
     return <div className='w-full h-screen bg-[#091413]'>
     {
@@ -18,6 +21,7 @@ const Stocks = ()=>{
             </div>
 
             {/* body */}
+            <Research/>
 
             {/* 
                                     <div className="aspect-square h-full text-center grid grid-cols-2 grid-rows-1 content-center text-2xl font-bold p-2">
@@ -27,8 +31,8 @@ const Stocks = ()=>{
 
             <div className="w-full h-full grid p-2">
                 <div className="border border-[#285A48] grid grid-cols-1 auto-rows-[20%] overflow-y-scroll p-1 gap-1 relative">
-
-                    <div className="absolute w-full h-full bg-[#091413] z-1 p-2 flex flex-col">
+                    {/* stock info page */}
+                    <div className="w-full absolute h-full bg-[#091413] z-10 p-2 flex flex-col" style={{display:open}}>
                         <div className="w-full h-fit flex">
                             <img src="" className="w-[60%] aspect-square"/>
                             <div className="w-full h-full text-red-50 ml-2 grid grid-cols-2 grid-rows-2 justify-items-center">
@@ -40,7 +44,7 @@ const Stocks = ()=>{
                                 <div className="w-full h-full col-span-2 flex">
                                     <div className="w-full h-full text-center grid content-center text-xl font-bold">$999999.99<span className="font-light text-xs">/stock</span></div>
                                     <div className="h-full grid content-center justify-items-center aspect-square">
-                                        <div className='aspect-square border-2 border-[#B0E4CC] w-[80%] grid grid-cols-3 gap-1 p-1 items-center'>
+                                        <div className='aspect-square border-2 border-[#B0E4CC] w-[80%] grid grid-cols-3 gap-1 p-1 items-center' onClick={()=>setOpen('none')}>
                                             <div className='w-full h-[33.4%] bg-[#B0E4CC]'/>
                                             <div className='w-full h-[66.6%] bg-[#B0E4CC]'/>
                                             <div className='w-full h-full bg-[#B0E4CC]'/>
@@ -86,7 +90,7 @@ const Stocks = ()=>{
                         </div>
                     </div>
 
-                    <div className="w-full h-full border border-[#285A48] flex p-2">
+                    <div className="w-full h-full border border-[#285A48] flex p-2 z-0">
                         <img src="" className="h-full aspect-square" />
                         {/* Name, price per stock, recent up or down, increase */}
                         <div className="w-full h-full text-red-50 ml-2 grid grid-cols-2 grid-rows-2 justify-items-center">
@@ -98,7 +102,7 @@ const Stocks = ()=>{
                             <div className="w-full h-full col-span-2 flex">
                                 <div className="w-full h-full text-center grid content-center text-xl font-bold">$999999.99<span className="font-light text-xs">/stock</span></div>
                                 <div className="h-full grid content-center justify-items-center aspect-square">
-                                    <div className='aspect-square border-2 border-[#B0E4CC] w-[80%] grid grid-cols-3 gap-1 p-1'>
+                                    <div className='aspect-square border-2 border-[#B0E4CC] w-[80%] grid grid-cols-3 gap-1 p-1' onClick={()=>setOpen('')}>
                                         <div className='w-full h-full bg-[#B0E4CC] '/>
                                         <div className='w-full h-full bg-[#B0E4CC] '/>
                                         <div className='w-full h-full bg-[#B0E4CC] '/>
